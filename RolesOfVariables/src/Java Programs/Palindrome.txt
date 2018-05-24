@@ -1,0 +1,29 @@
+public class Palindrome{
+    public static void main(String [] args){
+	static final int MaxLen = 8;
+	int len, i;
+	char [] candidate = new char [MaxLen];
+	boolean pali;
+	do{
+            System.out.print("Enter the length: ");
+            len = UserInputReader.readInt();
+            if((len < 1) || (len > MaxLen)){
+		System.out.println("Must be between 1.." + MaxLen);
+            }
+	}while((len<1) || (len>MaxLen));
+	for(i = 1; i <= len; i++){
+            System.out.print("Enter the " + i + ". letter: ");
+            candidate[i -1 ] = UserInputReader.readChar();
+	}
+	pali = true;
+	for(i = 1; i <=len ; i++){
+            pali = (pali && (candidate[i-1] == candidate [len - i]));
+	}
+	if(pali){
+            System.out.print("String is ");		
+	}else{
+            System.out.print("String is not");
+	}
+	System.out.print("a palindrome");
+    }
+}
